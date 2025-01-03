@@ -1,0 +1,14 @@
+version: "2"
+sql:
+    - schema: "./db/migration/"
+      queries: "./db/query/"
+      engine: "postgresql"
+      gen:
+          go:
+              package: "db"  # Go package name for the generated code
+              out: "./db/sqlc"  # Output directory for the generated Go files
+options:
+    json_tags: true
+    emit_prepared_queries: false
+    emit_interface: false # testing
+    emit_exact_table_names: true #table name with _struct
